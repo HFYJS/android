@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ListView
+        android:id="@+id/lv_shoppingcart"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+    <RadioButton
+        android:id="@+id/rb_shoppingcart_selectall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/btn_shoppingcart_topay"
+        android:text="全选" />
+
+    <Button
+        android:id="@+id/btn_shoppingcart_topay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="结算" />
+
+    <TextView
+        android:id="@+id/tv_shoppingcart_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/tv_shoppingcart_price"
+        android:layout_toLeftOf="@+id/tv_shoppingcart_price"
+        android:text="合计:" />
+
+    <TextView
+        android:id="@+id/tv_shoppingcart_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/rb_shoppingcart_selectall"
+        android:layout_alignBottom="@+id/rb_shoppingcart_selectall"
+        android:layout_toLeftOf="@+id/btn_shoppingcart_topay"
+        android:text="TextView" />
+
+</RelativeLayout>

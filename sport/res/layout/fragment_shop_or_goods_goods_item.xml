@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/iv_shop_or_goods_goodsitem"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_shop_or_goods_goodsitem_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_shop_or_goods_goodsitem"
+        android:layout_alignLeft="@id/iv_shop_or_goods_goodsitem"
+        android:layout_marginLeft="10dp"
+        android:text="亚瑟士男鞋" />
+
+    <TextView
+        android:id="@+id/tv_shop_or_goods_goodsitem_price"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_shop_or_goods_goodsitem_name"
+        android:layout_alignLeft="@id/tv_shop_or_goods_goodsitem_name"
+        android:gravity="left"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="376.2"
+        android:textColor="@drawable/light" />
+    <TextView
+        android:id="@+id/tv_shop_or_goods_goodsitem_sales"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_shop_or_goods_goodsitem_name"
+        android:layout_alignLeft="@id/tv_shop_or_goods_goodsitem_name"
+        android:layout_marginRight="15dp"
+        android:gravity="right"
+        android:layout_marginTop="10dp"
+        android:text="已售26件"
+        android:textColor="@drawable/light" />
+
+</RelativeLayout>

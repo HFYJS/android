@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/fl_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="198dp" >
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bottom_tab_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="2dp" >
+
+        <RadioButton
+            android:id="@+id/rb_home"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/home"
+            android:text="@string/rb_home_text" />
+
+        <RadioButton
+            android:id="@+id/rb_mall"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/newscenter"
+            android:text="@string/rb_mall_text" />
+
+        <RadioButton
+            android:id="@+id/rb_forum"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/govaffairs"
+            android:text="@string/rb_forum_text" />
+
+        <RadioButton
+            android:id="@+id/rb_personal"
+            style="@style/main_tab_bottom"
+            android:drawableTop="@drawable/settings"
+            android:text="@string/rb_personal_text" />
+    </RadioGroup>
+
+</RelativeLayout>

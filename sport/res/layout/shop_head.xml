@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/iv_shop_head_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/iv_shop_head_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="52dp"
+        android:layout_marginLeft="24dp"
+        android:src="@drawable/ic_launcher" />
+
+    <Button
+        android:id="@+id/btn_collect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/iv_shop_head_img"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/tv_shop_head_popularity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_collect"
+        android:layout_alignBottom="@+id/btn_collect"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@+id/btn_collect"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tv_shop_head_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_shop_head_popularity"
+        android:layout_alignBottom="@+id/tv_shop_head_popularity"
+        android:layout_toRightOf="@+id/iv_shop_head_img"
+        android:text="TextView" />
+
+</RelativeLayout>
