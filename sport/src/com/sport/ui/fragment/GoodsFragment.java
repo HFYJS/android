@@ -1,14 +1,22 @@
 package com.sport.ui.fragment;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.lidroid.xutils.BitmapUtils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 import com.sport.R;
 import com.sport.entity.Goods;
 import com.sport.ui.adapter.CommonAdapter;
@@ -28,28 +36,62 @@ public class GoodsFragment extends BaseFragment {
 
 	@Override
 	public void initView() {
+		Log.i("log", 1 + "initview");
 		// TODO Auto-generated method stub
 		gvGoods = (GridView) getActivity().findViewById(
 				R.id.gv_fragment_shop_or_goods_goods);
 
-		List<Goods> goodses = new ArrayList<Goods>();
-		goodses.add(new Goods());
-		goodses.add(new Goods());
-		goodses.add(new Goods());
-		goodses.add(new Goods());
-		goodses.add(new Goods());
-		goodses.add(new Goods());
+		getAllGoods();
 
-		gvGoods.setAdapter(new CommonAdapter<Goods>(getActivity(),
-				R.layout.fragment_shop_or_goods_goods_item, goodses) {
+	}
 
-			@Override
-			protected void setValue(ViewHolder vh, Goods value) {
-				// TODO Auto-generated method stub
+	private void getAllGoods() {
+		// TODO Auto-generated method stub
+		HttpUtils httpUtils = new HttpUtils();
+		final String ip = "http://10.53.230.141:8080/sport/";
+		String url = ip + "GetAllGoodsesServlet";
+		httpUtils.send(HttpRequest.HttpMethod.POST, url,
+				new RequestCallBack<String>() {
 
-			}
+					@Override
+					public void onFailure(HttpException arg0, String arg1) {
+						// TODO Auto-generated method stub
+					}
 
-		});
+					@Override
+					public void onSuccess(ResponseInfo<String> arg0) {
+						// TODO Auto-generated method stub
+						Gson gson = new Gson();
+						List<Goods> goodses = gson.fromJson(arg0.result,
+								new TypeToken<List<Goods>>() {
+								}.getType());
+
+						gvGoods.setAdapter(new CommonAdapter<Goods>(
+								getActivity(),
+								R.layout.fragment_shop_or_goods_goods_item,
+								goodses) {
+
+							@Override
+							protected void setValue(ViewHolder vh, Goods value) {
+								// TODO Auto-generated method stub
+								new BitmapUtils(GoodsFragment.this
+										.getActivity()).display(
+										vh.getView(R.id.iv_shop_or_goods_goodsitem),
+										ip + value.getImgPath());
+								vh.setTextView(
+										R.id.tv_shop_or_goods_goodsitem_name,
+										value.getName());
+								vh.setTextView(
+										R.id.tv_shop_or_goods_goodsitem_price,
+										value.getPrice() + "");
+								vh.setTextView(
+										R.id.tv_shop_or_goods_goodsitem_sales,
+										value.getSales() + "");
+							}
+
+						});
+					}
+				});
 	}
 
 	@Override

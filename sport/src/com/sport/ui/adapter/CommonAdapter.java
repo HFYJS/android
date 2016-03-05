@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 
 public abstract class CommonAdapter<T> extends BaseAdapter {
 
-	Context context;
-	int itemLayoutId;
-	List<T> list;
+	private Context context;
+	private int itemLayoutId;
+	private List<T> list;
 
 	public CommonAdapter(Context context, int itemLayoutId, List<T> list) {
 		this.context = context;

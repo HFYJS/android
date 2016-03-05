@@ -2,7 +2,7 @@
 <resources>
 
     <item name="transparent" type="drawable">#00000000</item>
-    <item name="maincolor" type="drawable">#1BA4E7</item><!-- 主色调 -->
+    <item name="maincolor" type="drawable">#FB4747</item><!-- 主色调(#1BA4E7) -->
     <item name="white" type="drawable">#FFFFFF</item><!-- 白色 -->
     <item name="light" type="drawable">#808080</item><!-- 浅灰 -->
 

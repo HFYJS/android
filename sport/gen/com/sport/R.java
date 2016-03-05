@@ -46,7 +46,7 @@ public final class R {
         public static final int setting_press2=0x7f02000d;
         public static final int settings=0x7f02000e;
         public static final int transparent=0x7f02000f;
-        /**  主色调 
+        /**  主色调(#1BA4E7) 
          */
         public static final int white=0x7f020011;
     }

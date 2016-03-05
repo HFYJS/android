@@ -42,7 +42,7 @@ public class ViewHolder {
 		return this.convertView;
 	}
 
-	protected void setTextView(int textViewId, String text) {
+	public void setTextView(int textViewId, String text) {
 		((TextView) getView(textViewId)).setText(text);
 	}
 }

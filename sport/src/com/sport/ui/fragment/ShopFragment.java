@@ -45,7 +45,7 @@ public class ShopFragment extends BaseFragment {
 			@Override
 			protected void setValue(ViewHolder vh, Shop value) {
 				// TODO Auto-generated method stub
-				
+
 			}
 
 		});
