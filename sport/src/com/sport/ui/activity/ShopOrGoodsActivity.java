@@ -23,7 +23,6 @@ public class ShopOrGoodsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		setContentView(R.layout.shop_or_goods);
 		super.onCreate(savedInstanceState);
 
 	}
@@ -78,6 +77,12 @@ public class ShopOrGoodsActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		btnSelectShop.setOnClickListener(this);
 		btnSelectGoods.setOnClickListener(this);
+	}
+
+	@Override
+	public void setContent() {
+		// TODO Auto-generated method stub
+		setContentView(R.layout.shop_or_goods);
 	}
 
 }

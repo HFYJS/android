@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/iv_fans_item_img"
+        android:layout_width="160dp"
+        android:layout_height="170dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="41dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_fans_item_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_fans_item_name"
+        android:layout_alignBottom="@+id/tv_fans_item_name"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/tv_fans_item_name"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tv_fans_item_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_fans_item_img"
+        android:layout_marginBottom="38dp"
+        android:layout_toLeftOf="@+id/tv_fans_item_sex"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tv_fans_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/iv_fans_item_img"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="36dp"
+        android:layout_toRightOf="@+id/iv_fans_item_img"
+        android:text="TextView" />
+
+</RelativeLayout>

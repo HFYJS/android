@@ -34,7 +34,6 @@ public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setContentView(R.layout.main);
 		super.onCreate(savedInstanceState);
 
 	}
@@ -98,6 +97,12 @@ public class MainActivity extends BaseActivity {
 		rbMall.setOnClickListener(this);
 		rbForum.setOnClickListener(this);
 		rbPersonal.setOnClickListener(this);
+	}
+
+	@Override
+	public void setContent() {
+		// TODO Auto-generated method stub
+		setContentView(R.layout.main);
 	}
 
 }
