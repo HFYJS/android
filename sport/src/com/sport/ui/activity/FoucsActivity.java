@@ -33,7 +33,7 @@ public class FoucsActivity extends BaseActivity {
 
 	private void showfoucs() {
 		// TODO Auto-generated method stub
-		final String url = getResources().getString(R.string.url_pre)
+		String url = getResources().getString(R.string.url_pre)
 				+ "GetAllAttentionsByUidServlet";
 		HttpUtils httpUtils = new HttpUtils();
 		RequestParams requestParams = new RequestParams();
@@ -44,7 +44,6 @@ public class FoucsActivity extends BaseActivity {
 					@Override
 					public void onFailure(HttpException arg0, String arg1) {
 						// TODO Auto-generated method stub
-
 					}
 
 					@Override
@@ -60,11 +59,11 @@ public class FoucsActivity extends BaseActivity {
 							@Override
 							protected void setValue(ViewHolder vh, User value) {
 								// TODO Auto-generated method stub
-								String url = getResources().getString(
-										R.string.url_pre)
-										+ value.getHeadPath();
 								new BitmapUtils(FoucsActivity.this).display(
-										vh.getView(R.id.iv_foucs_item_img), url);
+										vh.getView(R.id.iv_foucs_item_img),
+										getResources().getString(
+												R.string.url_pre)
+												+ value.getHeadPath());
 
 								vh.setTextView(R.id.tv_foucs_item_name,
 										value.getName());

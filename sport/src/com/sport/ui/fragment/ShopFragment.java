@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,15 +44,15 @@ public class ShopFragment extends BaseFragment {
 
 	public void ShowShops() {
 		HttpUtils http = new HttpUtils();
-		final String ip = "http://10.53.230.141:8080/sport/";
+		String url = getActivity().getResources().getString(R.string.url_pre)
+				+ "ShowShopsServlet";
 
-		http.send(HttpRequest.HttpMethod.GET, ip + "ShowShopsServlet",
+		http.send(HttpRequest.HttpMethod.GET, url,
 				new RequestCallBack<String>() {
 
 					@Override
 					public void onFailure(HttpException arg0, String arg1) {
 						// TODO Auto-generated method stub
-						Log.i("log", "onFailure");
 					}
 
 					@Override
@@ -73,6 +72,11 @@ public class ShopFragment extends BaseFragment {
 							protected void setValue(ViewHolder vh,
 									Map<String, String> value) {
 								// TODO Auto-generated method stub
+								new BitmapUtils(ShopFragment.this.getActivity()).display(
+										vh.getView(R.id.iv_shop_or_goods_shopitem),
+										getActivity().getResources().getString(
+												R.string.url_pre)
+												+ value.get("path"));
 								vh.setTextView(
 										(R.id.tv_shop_or_goods_shopitem_name),
 										value.get("name"));
@@ -82,9 +86,6 @@ public class ShopFragment extends BaseFragment {
 								vh.setTextView(
 										(R.id.tv_shop_or_goods_shopitem_popularity),
 										"ÏúÁ¿£º" + value.get("sales"));
-								new BitmapUtils(ShopFragment.this.getActivity()).display(
-										vh.getView(R.id.iv_shop_or_goods_shopitem),
-										ip + value.get("path"));
 							}
 						});
 					}

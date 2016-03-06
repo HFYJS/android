@@ -34,7 +34,7 @@ public class FansActivity extends BaseActivity {
 
 	private void showFans() {
 		// TODO Auto-generated method stub
-		final String url = getResources().getString(R.string.url_pre)
+		String url = getResources().getString(R.string.url_pre)
 				+ "GetAllFansByUidServlet";
 
 		HttpUtils httpUtils = new HttpUtils();
@@ -63,11 +63,11 @@ public class FansActivity extends BaseActivity {
 							@Override
 							protected void setValue(ViewHolder vh, User value) {
 								// TODO Auto-generated method stub
-								String url = getResources().getString(
-										R.string.url_pre)
-										+ value.getHeadPath();
 								new BitmapUtils(FansActivity.this).display(
-										vh.getView(R.id.iv_fans_item_img), url);
+										vh.getView(R.id.iv_fans_item_img),
+										getResources().getString(
+												R.string.url_pre)
+												+ value.getHeadPath());
 
 								vh.setTextView(R.id.tv_fans_item_name,
 										value.getName());

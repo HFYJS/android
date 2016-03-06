@@ -3,7 +3,6 @@ package com.sport.ui.fragment;
 import java.util.List;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,20 +35,19 @@ public class GoodsFragment extends BaseFragment {
 
 	@Override
 	public void initView() {
-		Log.i("log", 1 + "initview");
 		// TODO Auto-generated method stub
 		gvGoods = (GridView) getActivity().findViewById(
 				R.id.gv_fragment_shop_or_goods_goods);
 
-		getAllGoods();
+		showGoodses();
 
 	}
 
-	private void getAllGoods() {
+	private void showGoodses() {
 		// TODO Auto-generated method stub
 		HttpUtils httpUtils = new HttpUtils();
-		final String ip = "http://10.53.230.141:8080/sport/";
-		String url = ip + "GetAllGoodsesServlet";
+		String url = getActivity().getResources().getString(R.string.url_pre)
+				+ "GetAllGoodsesServlet";
 		httpUtils.send(HttpRequest.HttpMethod.POST, url,
 				new RequestCallBack<String>() {
 
@@ -77,7 +75,9 @@ public class GoodsFragment extends BaseFragment {
 								new BitmapUtils(GoodsFragment.this
 										.getActivity()).display(
 										vh.getView(R.id.iv_shop_or_goods_goodsitem),
-										ip + value.getImgPath());
+										getActivity().getResources().getString(
+												R.string.url_pre)
+												+ value.getImgPath());
 								vh.setTextView(
 										R.id.tv_shop_or_goods_goodsitem_name,
 										value.getName());
