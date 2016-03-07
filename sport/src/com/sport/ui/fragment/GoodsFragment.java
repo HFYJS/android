@@ -46,7 +46,7 @@ public class GoodsFragment extends BaseFragment {
 	private void showGoodses() {
 		// TODO Auto-generated method stub
 		HttpUtils httpUtils = new HttpUtils();
-		String url = getActivity().getResources().getString(R.string.url_pre)
+		String url = getResources().getString(R.string.url_pre)
 				+ "GetAllGoodsesServlet";
 		httpUtils.send(HttpRequest.HttpMethod.POST, url,
 				new RequestCallBack<String>() {
@@ -75,7 +75,7 @@ public class GoodsFragment extends BaseFragment {
 								new BitmapUtils(GoodsFragment.this
 										.getActivity()).display(
 										vh.getView(R.id.iv_shop_or_goods_goodsitem),
-										getActivity().getResources().getString(
+										getResources().getString(
 												R.string.url_pre)
 												+ value.getImgPath());
 								vh.setTextView(

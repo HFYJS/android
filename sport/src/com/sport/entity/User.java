@@ -1,6 +1,7 @@
 package com.sport.entity;
 
 public class User {
+
 	private int uid;
 	private String name;
 	private String password;

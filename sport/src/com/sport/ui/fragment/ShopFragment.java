@@ -44,7 +44,7 @@ public class ShopFragment extends BaseFragment {
 
 	public void ShowShops() {
 		HttpUtils http = new HttpUtils();
-		String url = getActivity().getResources().getString(R.string.url_pre)
+		String url = getResources().getString(R.string.url_pre)
 				+ "ShowShopsServlet";
 
 		http.send(HttpRequest.HttpMethod.GET, url,
@@ -74,7 +74,7 @@ public class ShopFragment extends BaseFragment {
 								// TODO Auto-generated method stub
 								new BitmapUtils(ShopFragment.this.getActivity()).display(
 										vh.getView(R.id.iv_shop_or_goods_shopitem),
-										getActivity().getResources().getString(
+										getResources().getString(
 												R.string.url_pre)
 												+ value.get("path"));
 								vh.setTextView(

@@ -1,0 +1,35 @@
+﻿<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <Button
+            android:id="@+id/btn_favorites_goods"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/maincolor"
+            android:text="商品"
+            android:textColor="@drawable/white" />
+
+        <Button
+            android:id="@+id/btn_favorites_post"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/maincolor"
+            android:text="帖子"
+            android:textColor="@drawable/white" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_favorites"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </FrameLayout>
+
+</LinearLayout>

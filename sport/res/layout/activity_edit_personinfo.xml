@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp" >
+
+        <Button
+            android:id="@+id/btn_personal_info_edit_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_launcher" />
+
+        <Button
+            android:id="@+id/btn_personal_info_edit_head"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_launcher" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <requestFocus />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:text="昵称：" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_name"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/name"
+            android:layout_alignBottom="@+id/name"
+            android:layout_toRightOf="@+id/name"
+            android:background="@null"
+            android:ems="10" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_age"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/age"
+            android:layout_alignBottom="@+id/age"
+            android:layout_toRightOf="@+id/age"
+            android:background="@null"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/et_personal_info_edit_name"
+            android:text="年龄：" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="性别：" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_sex"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/sex"
+            android:layout_alignBottom="@+id/sex"
+            android:layout_toRightOf="@+id/sex"
+            android:background="@null"
+            android:ems="10" />
+
+        
+
+        <TextView
+            android:id="@+id/race"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/et_personal_info_edit_sex"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/et_personal_info_edit_sex"
+            android:text="民族：" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_race"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/race"
+            android:layout_alignBottom="@+id/race"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/race"
+            android:background="@null"
+            android:ems="10" />
+       
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <TextView
+            android:id="@+id/nati"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:text="籍贯：" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_native"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/nati"
+            android:layout_alignBottom="@+id/nati"
+            android:layout_toRightOf="@+id/nati"
+            android:background="@null"
+            android:ems="10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="18dp"
+            android:text="电话：" />
+
+        <EditText
+            android:id="@+id/et_personal_info_edit_tel"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tel"
+            android:layout_alignBottom="@+id/tel"
+            android:layout_toRightOf="@+id/tel"
+            android:background="@null"
+            android:ems="10" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_personal_info_edit_hobby"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/hobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginTop="20dp"
+            android:text="兴趣：" />
+
+        <Button
+            android:id="@+id/btn_personal_info_edit_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/maincolor"
+            android:text="保存"
+            android:textColor="@drawable/white" />
+    </RelativeLayout>
+
+</LinearLayout>
