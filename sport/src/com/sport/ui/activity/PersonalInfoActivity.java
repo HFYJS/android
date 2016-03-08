@@ -62,9 +62,11 @@ public class PersonalInfoActivity extends BaseActivity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_personal_info_edit:
-			Intent intent = new Intent(this, PersonalInfoEditActivity.class);
-			intent.putExtra("userInfo", userStr);
-			startActivityForResult(intent, 1);
+			if (null != userStr) {
+				Intent intent = new Intent(this, PersonalInfoEditActivity.class);
+				intent.putExtra("userInfo", userStr);
+				startActivityForResult(intent, 1);
+			}
 			break;
 		}
 
