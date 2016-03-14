@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <GridView
-        android:id="@+id/gv_shop_goodslist"
+    <com.sport.myview.HeaderListView
+        android:id="@+id/lv_activity_shop_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:numColumns="2" >
-    </GridView>
+        android:layout_height="match_parent" >
+    </com.sport.myview.HeaderListView>
 
 </LinearLayout>

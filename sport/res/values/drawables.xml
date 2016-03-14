@@ -5,5 +5,6 @@
     <item name="maincolor" type="drawable">#FB4747</item> <!-- 主色调(#1BA4E7) -->
     <item name="white" type="drawable">#FFFFFF</item> <!-- 白色 -->
     <item name="light" type="drawable">#808080</item> <!-- 浅灰 -->
+    <item name="xlight" type="drawable">#F0F0F0</item> <!-- 白灰 -->
 
 </resources>

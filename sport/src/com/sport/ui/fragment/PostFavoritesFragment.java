@@ -1,7 +1,6 @@
 package com.sport.ui.fragment;
 
 import android.view.View;
-import android.widget.ListView;
 
 public class PostFavoritesFragment extends BaseFragment{
 	@Override

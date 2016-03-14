@@ -7,23 +7,27 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.sport.R;
+import com.sport.myview.RefreshListView;
+import com.sport.myview.RefreshListView.OnRefreshCallBack;
 import com.sport.ui.adapter.CommonAdapter;
 import com.sport.ui.adapter.ViewHolder;
 
-public class ShopFragment extends BaseFragment {
+public class ShopFragment extends BaseFragment implements OnRefreshCallBack {
 
-	ListView lvShop;
+	RefreshListView lvShop;
+
+	CommonAdapter<Map<String, String>> adapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,8 +40,10 @@ public class ShopFragment extends BaseFragment {
 	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
-		lvShop = (ListView) getActivity().findViewById(
+		lvShop = (RefreshListView) getActivity().findViewById(
 				R.id.lv_fragment_shop_or_goods_shop);
+
+		lvShop.setOnRefreshCallBack(this);
 
 		ShowShops();
 	}
@@ -45,9 +51,14 @@ public class ShopFragment extends BaseFragment {
 	public void ShowShops() {
 		HttpUtils http = new HttpUtils();
 		String url = getResources().getString(R.string.url_pre)
-				+ "ShowShopsServlet";
+				+ "ShowPagedShopsByCatidServlet";
 
-		http.send(HttpRequest.HttpMethod.GET, url,
+		RequestParams params = new RequestParams();
+		params.addQueryStringParameter("catid", "1");
+		params.addQueryStringParameter("pageStart", "0");
+		params.addQueryStringParameter("pageSize", "4");
+
+		http.send(HttpRequest.HttpMethod.GET, url, params,
 				new RequestCallBack<String>() {
 
 					@Override
@@ -63,7 +74,8 @@ public class ShopFragment extends BaseFragment {
 								results,
 								new TypeToken<List<Map<String, String>>>() {
 								}.getType());
-						lvShop.setAdapter(new CommonAdapter<Map<String, String>>(
+
+						adapter = new CommonAdapter<Map<String, String>>(
 								getActivity(),
 								R.layout.fragment_shop_or_goods_shop_item,
 								shops) {
@@ -87,13 +99,29 @@ public class ShopFragment extends BaseFragment {
 										(R.id.tv_shop_or_goods_shopitem_popularity),
 										"ÏúÁ¿£º" + value.get("sales"));
 							}
-						});
+						};
+
+						lvShop.setAdapter(adapter);
 					}
 				});
 	}
 
 	@Override
 	public void onClick(View v) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onRefresh() {
+		// TODO Auto-generated method stub
+		if (null != adapter) {
+			adapter.notifyDataSetChanged();
+		}
+	}
+
+	@Override
+	public void onPull() {
 		// TODO Auto-generated method stub
 
 	}

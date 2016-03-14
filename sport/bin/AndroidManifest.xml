@@ -38,15 +38,31 @@
         <activity
             android:name="com.sport.ui.activity.PersonalInfoActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.sport.ui.activity.PersonalInfoEditActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.sport.ui.activity.ShoppingCartActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="test.ScrollActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="test.HeadGridViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.sport.ui.activity.ShopDetailActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.sport.ui.activity.PersonalInfoEditActivity"
-            android:label="@string/app_name" >
         </activity>
     </application>
 

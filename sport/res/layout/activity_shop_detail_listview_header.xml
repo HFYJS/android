@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15" >
+
+        <ImageView
+            android:id="@+id/iv_activity_shop_detail_listview_header_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/iv_activity_shop_detail_listview_header_head"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_activity_shop_detail_listview_header_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_toRightOf="@+id/iv_activity_shop_detail_listview_header_head"
+            android:text="nike店" />
+
+        <TextView
+            android:id="@+id/tv_activity_shop_detail_listview_header_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_activity_shop_detail_listview_header_name"
+            android:layout_alignBottom="@+id/tv_activity_shop_detail_listview_header_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="人气：402" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="人气"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="销量"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="价格"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>
