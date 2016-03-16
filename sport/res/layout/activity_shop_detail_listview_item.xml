@@ -17,7 +17,7 @@
         android:layout_weight="19" >
 
         <ImageView
-            android:id="@+id/iv_activity_shop_detail_listview_item"
+            android:id="@+id/iv_activity_shop_detail_listview_item_img"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -33,6 +33,7 @@
                 android:id="@+id/tv_activity_shop_detail_listview_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:text="name" />
 
@@ -45,6 +46,7 @@
                     android:id="@+id/tv_activity_shop_detail_listview_item_price"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:text="price"

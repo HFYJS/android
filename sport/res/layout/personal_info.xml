@@ -12,6 +12,7 @@
             android:id="@+id/iv_personl_info_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
             android:src="@drawable/ic_launcher" />
 
         <ImageView
@@ -22,6 +23,16 @@
             android:layout_alignParentLeft="true"
             android:src="@drawable/ic_launcher" />
 
+        <Button
+            android:id="@+id/btn_personl_info_back"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/iv_personl_info_head"
+            android:background="@drawable/back" />
+       
     </RelativeLayout>
 
     <RelativeLayout
@@ -151,7 +162,26 @@
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:background="#C0C5C7" />
+    
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp" >
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="兴趣" />
+
+     
+    </RelativeLayout>
+  
+    
+  
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent" >
@@ -169,17 +199,11 @@
             android:id="@+id/rl_hobby"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+          
             android:layout_above="@+id/btn_personal_info_edit"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="18dp"
-                android:text="兴趣" />
+            android:layout_alignParentTop="true" > 
 
         </RelativeLayout>
 

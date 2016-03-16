@@ -22,7 +22,7 @@ import com.sport.ui.adapter.ViewHolder;
 
 public class FansActivity extends BaseActivity {
 
-	ListView lvvFans;
+	ListView lvFans;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class FansActivity extends BaseActivity {
 								new TypeToken<List<User>>() {
 								}.getType());
 
-						lvvFans.setAdapter(new CommonAdapter<User>(
+						lvFans.setAdapter(new CommonAdapter<User>(
 								FansActivity.this, R.layout.fans_item, users) {
 
 							@Override
@@ -92,7 +92,7 @@ public class FansActivity extends BaseActivity {
 	@Override
 	void initView() {
 		// TODO Auto-generated method stub
-		lvvFans = (ListView) findViewById(R.id.lv_fans);
+		lvFans = (ListView) findViewById(R.id.lv_fans);
 	}
 
 	@Override

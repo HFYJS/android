@@ -23,6 +23,15 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@drawable/ic_launcher" />
+
+        <Button
+            android:id="@+id/btn_personal_info_edit_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_launcher" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -182,20 +191,25 @@
         android:layout_height="1px"
         android:background="#C0C5C7" />
 
-    <RelativeLayout
-        android:id="@+id/rl_personal_info_edit_hobby"
+       <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="50dp" >
 
         <TextView
-            android:id="@+id/hobby"
+            android:id="@+id/tv_hobby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="17dp"
-            android:layout_marginTop="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
             android:text="兴趣：" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        >
+
 
         <Button
             android:id="@+id/btn_personal_info_edit_save"
@@ -205,6 +219,16 @@
             android:background="@drawable/maincolor"
             android:text="保存"
             android:textColor="@drawable/white" />
+
+        <RelativeLayout
+            android:id="@+id/rl_personal_info_edit_hobby"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="50dp"
+            android:layout_marginBottom="45dp"
+            android:layout_alignParentBottom="true"   >
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

@@ -15,32 +15,28 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_launcher" />
 
-        <ImageView
-            android:id="@+id/iv_activity_shop_detail_listview_header_head"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_launcher" />
-
         <TextView
             android:id="@+id/tv_activity_shop_detail_listview_header_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@+id/iv_activity_shop_detail_listview_header_head"
-            android:text="nike店" />
+            android:layout_marginLeft="20dp"
+            android:text="nike店"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/tv_activity_shop_detail_listview_header_popularity"
+            android:id="@+id/tv_activity_shop_detail_listview_header_sales"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/tv_activity_shop_detail_listview_header_name"
             android:layout_alignBottom="@+id/tv_activity_shop_detail_listview_header_name"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
-            android:text="人气：402" />
+            android:text="总销量"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <LinearLayout

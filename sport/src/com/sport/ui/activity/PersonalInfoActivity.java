@@ -1,5 +1,6 @@
 package com.sport.ui.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.RelativeLayout.LayoutParams;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -42,6 +44,8 @@ public class PersonalInfoActivity extends BaseActivity {
 	TextView tvTel;
 	@ViewInject(R.id.tv_personl_info_race)
 	TextView tvRace;
+	@ViewInject(R.id.btn_personl_info_back)
+	Button btnBack;
 	@ViewInject(R.id.tv_personl_info_native)
 	TextView tvNative;
 	@ViewInject(R.id.btn_personal_info_edit)
@@ -50,7 +54,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	RelativeLayout rlHobby;
 
 	String userStr;
-
+	List<Button> btnList = new ArrayList<Button>();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,12 +65,12 @@ public class PersonalInfoActivity extends BaseActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.btn_personal_info_edit:
-			if (null != userStr) {
+		case R.id.btn_personal_info_edit:	
 				Intent intent = new Intent(this, PersonalInfoEditActivity.class);
-				intent.putExtra("userInfo", userStr);
 				startActivityForResult(intent, 1);
-			}
+			break;
+		case R.id.btn_personl_info_back:
+			finish();
 			break;
 		}
 
@@ -77,6 +81,7 @@ public class PersonalInfoActivity extends BaseActivity {
 		String url = getResources().getString(R.string.url_pre)
 				+ "GetUserInfoByUidServlet";
 		String userId = "1";
+		http.configCurrentHttpCacheExpiry(0); 
 
 		RequestParams paras = new RequestParams();
 		paras.addQueryStringParameter("uid", userId);
@@ -124,7 +129,14 @@ public class PersonalInfoActivity extends BaseActivity {
 							ivHead,
 							getResources().getString(R.string.url_pre)
 									+ user.getHeadPath());
-
+					
+					if(btnList.size() != 0){
+					
+						for(Button b : btnList){
+							rlHobby.removeView(b);
+						}
+						btnList.clear();
+					}
 					for (int i = 0; i < hobbies.size(); i++) {
 						Button button = new Button(PersonalInfoActivity.this);
 						button.setText(hobbies.get(i).getName());
@@ -132,8 +144,21 @@ public class PersonalInfoActivity extends BaseActivity {
 								R.drawable.white));
 						button.setBackgroundColor(getResources().getColor(
 								R.drawable.maincolor));
-						rlHobby.addView(button);
+//						button.setPadding(200, 20, 20, 20);
+						rlHobby.addView(button);		
+						LayoutParams params = (LayoutParams) button.getLayoutParams();
+	
+						for(int j=0;j<=i;j++){
+							if(i<6){	
+								params.leftMargin = 150*j;							
+							}else{
+								params.leftMargin = 150*(j-2);
+								params.topMargin = 50*j;
+							}
+						}				
+						btnList.add(button);
 					}
+					
 				}
 			}
 		});
@@ -143,15 +168,13 @@ public class PersonalInfoActivity extends BaseActivity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode) {
-		case 1:
-			switch (resultCode) {
-			case 1:
-				getInfo();
-				break;
-			}
+		
+		if(resultCode==RESULT_OK&&requestCode==1){
+			
+			Log.i("myHobbies", "ÕýÔÚË¢ÐÂ");
+			getInfo();
+			
 		}
-
 	}
 
 	@Override
@@ -168,6 +191,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@Override
 	void setListener() {
 		btnEdit.setOnClickListener(this);
+		btnBack.setOnClickListener(this);
 	}
 
 	@Override
@@ -175,5 +199,5 @@ public class PersonalInfoActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.personal_info);
 	}
-
+	
 }

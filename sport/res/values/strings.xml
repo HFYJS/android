@@ -4,7 +4,7 @@
     <string name="app_name">sport</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-     <string name="url_pre">http://10.40.5.27:8080/sport/</string>
+     <string name="url_pre">http://192.168.191.1:8080/sport/</string>
     <string name="rb_home_text">首页</string>
     <string name="rb_mall_text">商城</string>
     <string name="rb_forum_text">论坛</string>
