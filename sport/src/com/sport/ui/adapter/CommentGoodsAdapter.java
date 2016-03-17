@@ -4,30 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import com.lidroid.xutils.BitmapUtils;
 import com.sport.R;
 import com.sport.entity.temp.Order;
 import com.sport.entity.temp.OrderInfo;
 
-public class CommentGoodsAdapter extends BaseAdapter {
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 	private List<OrderInfo> list;
-	List<Order> orderList1 = new ArrayList<Order>();
-	String orderResult;
 	List<List<Order>> orderdetailList;
 	Context context;
 	Map<String, String> orderMap;
 	private LayoutInflater inflater;
-	private CommentGoodsChildAdapter childAdapter;
+//	private CommentGoodsChildAdapter childAdapter;
 
 	public CommentGoodsAdapter(List<OrderInfo> list, Context context,
 			List<List<Order>> orderdetailList) {
@@ -35,7 +38,6 @@ public class CommentGoodsAdapter extends BaseAdapter {
 		this.list = list;
 		this.context = context;
 		this.orderdetailList = orderdetailList;
-		childAdapter = new CommentGoodsChildAdapter(context);
 		this.inflater = LayoutInflater.from(context);
 	}
 
@@ -59,16 +61,19 @@ public class CommentGoodsAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ChildListViewItem childListViewItem = new ChildListViewItem();
-		convertView = inflater.inflate(R.layout.comment_goods_item, null);
-		if (convertView != null) {
+		ChildListViewItem childListViewItem = null;
+		
+		if (convertView == null) {
+			childListViewItem = new ChildListViewItem();
+			convertView = inflater.inflate(R.layout.comment_goods_item, parent,
+					false);
 			childListViewItem.tvCount = (TextView) convertView
 					.findViewById(R.id.tv_evaluate_goods_item_goodscount);
 			childListViewItem.tvAllPrice = (TextView) convertView
 					.findViewById(R.id.tv_evaluate_goods__item_goodsprice);
 			childListViewItem.tvState = (TextView) convertView
 					.findViewById(R.id.tv_evaluate_goods_item_dealstatus);
-			childListViewItem.btnShopName = (Button) convertView
+			childListViewItem.btnShopName = (TextView) convertView
 					.findViewById(R.id.bt_evaluate_goods_item_shop_name);
 			childListViewItem.btnDel = (Button) convertView
 					.findViewById(R.id.bt_evaluate_goods__item_delete);
@@ -78,35 +83,30 @@ public class CommentGoodsAdapter extends BaseAdapter {
 					.findViewById(R.id.bt_evaluate_goods__item_evaluate);
 			childListViewItem.ivShopImage = (ImageView) convertView
 					.findViewById(R.id.iv_evaluate_goods_item_shop_image);
+			childListViewItem.rlshop = (RelativeLayout) convertView.findViewById(R.id.rl_evaluate_goods_shop);
 			childListViewItem.lv = (ListView) convertView
 					.findViewById(R.id.lv_evaluate_goods_item_goodscount);
+			
+			childListViewItem.rlshop.setTag(position);
+			childListViewItem.btnDel.setTag(position);
+			childListViewItem.btnQuery.setTag(position);
+			childListViewItem.btnEvaluate.setTag(position);
+			childListViewItem.lv.setTag(position);
+			
+			childListViewItem.btnDel.setOnClickListener(this);
+			childListViewItem.btnQuery.setOnClickListener(this);
+			childListViewItem.btnEvaluate.setOnClickListener(this);
+			childListViewItem.rlshop.setOnClickListener(this);
+		
+			//嵌套listview
+			
+			
 			convertView.setTag(childListViewItem);
 		} else {
 			childListViewItem = (ChildListViewItem) convertView.getTag();
 		}
-		//
-		// orderMap = new Gson().fromJson(
-		// orderResult, new TypeToken<Map<String,String>>() {
-		// }.getType());
-		// String orderStr = orderMap.get("orderlist");
-		// List<List<Order>> orderList = new Gson().fromJson(orderStr,
-		// new TypeToken<List<List<Order>>>(){}.getType() );
-		//
-		// Log.i("log",list.get(position).getOid()+"");
-		//
-		// for(Order o: orderList){
-		// // Log.i("log",o.getOid()+"");
-		//
-		// if(o.getOid()==list.get(position).getOid()){
-		//
-		// orderList1.add(o);
-		// // Log.i("log",o.getOid()+"");
-		// }
-		//
-		// }
-		childAdapter.addAll(orderdetailList.get(position));
-		childListViewItem.lv.setAdapter(childAdapter);
-
+		
+		
 		childListViewItem.tvCount.setText("共 " + list.get(position).getSum()
 				+ " 件商品");
 		childListViewItem.tvAllPrice.setText("￥"
@@ -117,14 +117,54 @@ public class CommentGoodsAdapter extends BaseAdapter {
 		bitmapUtils.display(childListViewItem.ivShopImage, context
 				.getResources().getString(R.string.url_pre)
 				+ list.get(position).getShopImage());
+		//listview添加tag（Position ）
+		
+		//adapter由对应的tag来确定：orderdetailList.get(listview.getTag())
+		
+		CommentGoodsChildAdapter childAdapter = new CommentGoodsChildAdapter(context,orderdetailList.get((Integer) childListViewItem.lv.getTag()));
+		childListViewItem.lv.setAdapter(childAdapter);
+		
+//		childListViewItem.lv.setOnItemClickListener(new OnItemClickListener() {
+//
+//			@Override
+//			public void onItemClick(AdapterView<?> parent, View v, int position,
+//					long id) {
+//				String goodsname = orderdetailList.get((Integer) parent.getTag()).get(position).getGoodsName();
+//				Toast.makeText(context, goodsname, 1).show();
+//			}
+//		});
+		
+		
 		return convertView;
 	}
 
 	public class ChildListViewItem {
 
-		Button btnDel, btnQuery, btnShopName, btnEvaluate;
-		TextView tvAllPrice, tvCount, tvState;
+		Button btnDel, btnQuery,  btnEvaluate;
+		TextView tvAllPrice, tvCount, tvState, btnShopName;
 		ListView lv;
 		ImageView ivShopImage;
+		RelativeLayout rlshop;
+	}
+
+	@Override
+	public void onClick(View v) {
+		int oid = list.get((Integer) v.getTag()).getOid();
+		switch (v.getId()) {
+		case R.id.rl_evaluate_goods_shop:
+			String shopname = list.get((Integer) v.getTag()).getShopName();
+			Toast.makeText(context, "商店"+shopname,Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.bt_evaluate_goods__item_delete:
+//			list.remove((Integer) v.getTag());
+			Toast.makeText(context, "删除订单"+oid,Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.bt_evaluate_goods__item_logistics:
+			
+			break;
+		case R.id.bt_evaluate_goods__item_evaluate:
+	
+			break;
+		}
 	}
 }

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_waiting_take_goods_shop"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/tv_waiting_take_goods_item_dealstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/bt_waiting_take_goods_item_shop_name"
+            android:layout_marginRight="18dp"
+            android:gravity="center"
+            android:textColor="@drawable/maincolor"
+            android:text="交易状态" />
+
+        <TextView
+            android:id="@+id/bt_waiting_take_goods_item_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+			android:gravity="center"
+            android:text="店名"/>
+
+        <ImageView
+            android:id="@+id/iv_waiting_take_goods_item_shop_image"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher" />
+
+    </RelativeLayout>
+
+    <com.sport.myview.CommentGoodsChildLV
+            android:id="@+id/lv_waiting_take_goods_item_goodscount"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" >
+        </com.sport.myview.CommentGoodsChildLV>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp" >
+
+        <TextView
+            android:id="@+id/tv_waiting_take_goods_item_goodscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="117dp"
+            android:text="共1件商品" 
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_waiting_take_goods__item_goodsprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_waiting_take_goods_item_goodscount"
+            android:layout_alignBottom="@+id/tv_waiting_take_goods_item_goodscount"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="19dp"
+            android:text="合计：￥139.00" 
+             android:textSize="12sp"
+            android:gravity="center"/>
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <Button
+            android:id="@+id/bt_waiting_take_goods__item_take"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:text="确认收货"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/bt_waiting_take_goods__item_logistics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/bt_waiting_take_goods__item_take"
+            android:background="@null"
+            android:text="查看物流"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    
+
+</LinearLayout>

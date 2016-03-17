@@ -18,11 +18,11 @@
     </style>
     
      <style name="main_tab_bottom">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/bottom_text_color</item>
        <!-- 当前的文字太长，会以...表示 -->
         <item name="android:ellipsize">marquee</item>
-        <item name="android:gravity">center</item>
+        <item name="android:gravity">center|top</item>
         <item name="android:background">@drawable/transparent</item>
         <item name="android:paddingTop">2.0dip</item>
         <item name="android:layout_width">0dp</item>

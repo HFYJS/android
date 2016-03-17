@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:id="@+id/rl_evaluate_goods_shop"
         android:layout_width="match_parent"
         android:layout_height="30dp">
 
@@ -19,16 +20,15 @@
             android:textColor="@drawable/maincolor"
             android:text="交易状态" />
 
-        <Button
+        <TextView
             android:id="@+id/bt_evaluate_goods_item_shop_name"
             android:layout_width="wrap_content"
             android:layout_height="16dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="28dp"
-            android:background="@null"
-            android:text="店名"
-            android:textSize="12dp" />
+			android:gravity="center"
+            android:text="店名"/>
 
         <ImageView
             android:id="@+id/iv_evaluate_goods_item_shop_image"
@@ -60,7 +60,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="117dp"
             android:text="共1件商品" 
-            android:textSize="10dp"
+            android:textSize="12sp"
             android:gravity="center"/>
 
         <TextView
@@ -72,7 +72,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="19dp"
             android:text="合计：￥139.00" 
-             android:textSize="10dp"
+             android:textSize="12sp"
             android:gravity="center"/>
         
     </RelativeLayout>
@@ -89,7 +89,7 @@
             android:layout_toRightOf="@+id/bt_evaluate_goods__item_logistics"
             android:background="@null"
             android:text="评价"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/bt_evaluate_goods__item_delete"
@@ -99,7 +99,7 @@
             android:layout_centerHorizontal="true"
             android:background="@null"
             android:text="删除订单"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/bt_evaluate_goods__item_logistics"
@@ -109,8 +109,8 @@
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/bt_evaluate_goods__item_delete"
             android:background="@null"
-            android:text="查看物流"
-            android:textSize="15dp" />
+            android:text="查看物流"    
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

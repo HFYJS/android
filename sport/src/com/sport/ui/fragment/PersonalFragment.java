@@ -10,9 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+
 import com.sport.R;
+import com.sport.ui.activity.AllOrdersActivity;
+import com.sport.ui.activity.WaitingCommentActivity;
 import com.sport.ui.activity.PersonalInfoActivity;
 import com.sport.ui.activity.PersonalInfoEditActivity;
+import com.sport.ui.activity.WaitingPayActivity;
+import com.sport.ui.activity.WaitingSendActivity;
+import com.sport.ui.activity.WaitingTakeActivity;
 
 public class PersonalFragment extends BaseFragment implements OnClickListener{
 
@@ -24,11 +30,13 @@ public class PersonalFragment extends BaseFragment implements OnClickListener{
 	Button btnPost;
 	Button btnPay;
 	Button btnTackGoods;
+	Button btnSendGoods;
 	Button btnComment;
 	RelativeLayout rlMyfavor;
 	RelativeLayout rlEditInfo;
 	RelativeLayout rlLogistics;
 	RelativeLayout rlNear;
+	RelativeLayout rlorder;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,10 +63,12 @@ public class PersonalFragment extends BaseFragment implements OnClickListener{
 		btnPay = (Button) getActivity().findViewById(R.id.btn_fragment_personal_pay);
 		btnTackGoods = (Button) getActivity().findViewById(R.id.btn_fragment_personal_takegoods);
 		btnComment = (Button) getActivity().findViewById(R.id.btn_fragment_personal_comment);
+		btnSendGoods = (Button) getActivity().findViewById(R.id.btn_fragment_personal_sendgoods);
 		rlMyfavor = (RelativeLayout) getActivity().findViewById(R.id.rl_fragment_personal_myfavorites);
 		rlEditInfo = (RelativeLayout) getActivity().findViewById(R.id.rl_fragment_personal_editInfo);
 		rlLogistics = (RelativeLayout) getActivity().findViewById(R.id.rl_fragment_personal_logistics);
 		rlNear = (RelativeLayout) getActivity().findViewById(R.id.rl_fragment_personal_nearby);
+		rlorder = (RelativeLayout) getActivity().findViewById(R.id.rl_fragment_personal_allorder);
 		setOnclick();
 	}
 
@@ -82,14 +92,25 @@ public class PersonalFragment extends BaseFragment implements OnClickListener{
 		case R.id.btn_fragment_personal_post:
 			
 			break;
+		case R.id.rl_fragment_personal_allorder:
+			Intent allIntent = new Intent(getActivity(),AllOrdersActivity.class);
+			startActivity(allIntent);
+			break;
 		case R.id.btn_fragment_personal_pay:
-			
+			Intent payintent = new Intent(getActivity(),WaitingPayActivity.class);
+			startActivity(payintent);			
+			break;
+		case R.id.btn_fragment_personal_sendgoods:
+			Intent sendIntent = new Intent(getActivity(),WaitingSendActivity.class);
+			startActivity(sendIntent);
 			break;
 		case R.id.btn_fragment_personal_takegoods:
-			
+			Intent takeIntent = new Intent(getActivity(),WaitingTakeActivity.class);
+			startActivity(takeIntent);
 			break;
 		case R.id.btn_fragment_personal_comment:
-			
+			Intent commentIntent = new Intent(getActivity(),WaitingCommentActivity.class);
+			startActivity(commentIntent);
 			break;
 		case R.id.rl_fragment_personal_myfavorites:
 			
@@ -119,10 +140,12 @@ public class PersonalFragment extends BaseFragment implements OnClickListener{
 		btnPay.setOnClickListener(this);
 		btnPost.setOnClickListener(this);
 		btnTackGoods.setOnClickListener(this);
+		btnSendGoods.setOnClickListener(this);
 		rlEditInfo.setOnClickListener(this);
 		rlLogistics.setOnClickListener(this);
 		rlMyfavor.setOnClickListener(this);
 		rlNear.setOnClickListener(this);
+		rlorder.setOnClickListener(this);
 	}
 
 }

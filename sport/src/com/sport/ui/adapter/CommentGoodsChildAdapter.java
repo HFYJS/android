@@ -2,6 +2,10 @@ package com.sport.ui.adapter;
 
 import java.util.List;
 
+import com.lidroid.xutils.BitmapUtils;
+import com.sport.R;
+import com.sport.entity.temp.Order;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,30 +14,29 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lidroid.xutils.BitmapUtils;
-import com.sport.R;
-import com.sport.entity.temp.Order;
-
 public class CommentGoodsChildAdapter extends BaseAdapter {
 	private List<Order> list;
 	private Context context;
 	private LayoutInflater inflater;
 
-	public CommentGoodsChildAdapter(Context context) {
+	//构造方法：context,List
+	
+	public CommentGoodsChildAdapter(Context context, List<Order> list) {
 		super();
 		this.context = context;
+		this.list = list;
 		this.inflater = LayoutInflater.from(context);
 	}
 
-	public void addAll(List<Order> list) {
-		this.list = list;
-		notifyDataSetChanged();
-	}
-
-	public void clearAll() {
-		this.list.clear();
-		notifyDataSetChanged();
-	}
+//	public void addAll(List<Order> list) {
+//		this.list = list;
+//		notifyDataSetChanged();
+//	}
+//
+//	public void clearAll() {
+//		this.list.clear();
+//		notifyDataSetChanged();
+//	}
 
 	@Override
 	public int getCount() {
@@ -55,8 +58,9 @@ public class CommentGoodsChildAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ParentListItem listItem = new ParentListItem();
+		ParentListItem listItem = null;
 		if (convertView == null) {
+			listItem = new ParentListItem();
 			convertView = inflater.inflate(R.layout.comment_goods_details,
 					parent, false);
 			listItem.ivGoods = (ImageView) convertView
@@ -72,7 +76,6 @@ public class CommentGoodsChildAdapter extends BaseAdapter {
 			listItem = (ParentListItem) convertView.getTag();
 		}
 
-		// listItem.ivGoods.setBackground(null);
 		BitmapUtils bitmapUtils = new BitmapUtils(context);
 		bitmapUtils.display(
 				listItem.ivGoods,
@@ -86,8 +89,6 @@ public class CommentGoodsChildAdapter extends BaseAdapter {
 	}
 
 	public class ParentListItem {
-		// Button btnDel, btnQuery,btnEvaluate;
-		// TextView tvShopName, tvGoodsName, tvAllPrice, tvCount,tvState;
 		TextView tvGoodsName;
 		TextView tvGoodsPrice;
 		TextView tvGoodsCount;

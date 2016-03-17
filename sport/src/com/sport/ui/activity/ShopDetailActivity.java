@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,11 +29,31 @@ public class ShopDetailActivity extends BaseActivity {
 	TextView tvName;
 	TextView tvSales;
 	ImageView ivBack;
+	Button btnPopularity;
+	Button btnSales;
+	Button btnPrice;
+
+	String url;
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.btn_order_popularity:
+			url = getResources().getString(R.string.url_pre)
+					+ "GetShopDetailBySidOrderByPopularityServlet?sid=1";
+			break;
+		case R.id.btn_order_sales:
+			url = getResources().getString(R.string.url_pre)
+					+ "GetShopDetailBySidOrderBySalesServlet?sid=1";
+			break;
+		case R.id.btn_order_price:
+			url = getResources().getString(R.string.url_pre)
+					+ "GetShopDetailBySidOrderByPriceServlet?sid=1";
+			break;
+		}
 
+		initData(url);
 	}
 
 	@Override
@@ -51,11 +72,16 @@ public class ShopDetailActivity extends BaseActivity {
 				.findViewById(R.id.tv_activity_shop_detail_listview_header_sales);
 		ivBack = (ImageView) lv
 				.findViewById(R.id.iv_activity_shop_detail_listview_header_background);
+		btnPopularity = (Button) lv.findViewById(R.id.btn_order_popularity);
+		btnSales = (Button) lv.findViewById(R.id.btn_order_sales);
+		btnPrice = (Button) lv.findViewById(R.id.btn_order_price);
 
-		initData();
+		url = getResources().getString(R.string.url_pre)
+				+ "GetShopDetailBySidOrderByPopularityServlet?sid=1";
+		initData(url);
 	}
 
-	private void initData() {
+	private void initData(String url) {
 		// TODO Auto-generated method stub
 		new NetUtil() {
 
@@ -103,18 +129,18 @@ public class ShopDetailActivity extends BaseActivity {
 						vh.setTextView(
 								R.id.tv_activity_shop_detail_listview_item_name,
 								value.getName());
-						vh.setTextView(
-								R.id.tv_activity_shop_detail_listview_item_price,
-								"￥" + value.getPrice());
 						if (null == value.getActivity()) {
 							vh.setTextView(
-									R.id.tv_activity_shop_detail_listview_item_sales,
-									"销量：" + value.getPrice());
+									R.id.tv_activity_shop_detail_listview_item_price,
+									"￥" + value.getPrice());
 						} else {
 							vh.setTextView(
-									R.id.tv_activity_shop_detail_listview_item_sales,
-									"活动：" + value.getActPrice());
+									R.id.tv_activity_shop_detail_listview_item_price,
+									"活动￥" + value.getActPrice());
 						}
+						vh.setTextView(
+								R.id.tv_activity_shop_detail_listview_item_sales,
+								"销量：" + value.getSales());
 						vh.setTextView(
 								R.id.tv_activity_shop_detail_listview_item_popularity,
 								"人气：" + value.getPopularity());
@@ -129,9 +155,7 @@ public class ShopDetailActivity extends BaseActivity {
 				});
 			}
 
-		}.begin(NetUtil.STRING, NetUtil.GET,
-				getResources().getString(R.string.url_pre)
-						+ "GetShopDetailBySidServlet?sid=1");
+		}.begin(NetUtil.STRING, NetUtil.GET, url);
 	}
 
 	@Override
@@ -143,7 +167,9 @@ public class ShopDetailActivity extends BaseActivity {
 	@Override
 	void setListener() {
 		// TODO Auto-generated method stub
-
+		btnPopularity.setOnClickListener(this);
+		btnSales.setOnClickListener(this);
+		btnPrice.setOnClickListener(this);
 	}
 
 }

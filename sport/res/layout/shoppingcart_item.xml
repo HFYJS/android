@@ -61,7 +61,7 @@
                     android:textColor="@drawable/maincolor" />
 
                 <Button
-                    android:id="@+id/button1"
+                    android:id="@+id/btn_shoppingcart_item_sub"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,7 +80,7 @@
                     android:textColor="@drawable/light" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_shoppingcart_item_add"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
