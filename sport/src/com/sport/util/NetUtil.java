@@ -12,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.util.LruCache;
 
 public abstract class NetUtil {
@@ -70,7 +71,71 @@ public abstract class NetUtil {
 				try {
 					URL url = new URL(urlStr);
 					conn = (HttpURLConnection) url.openConnection();
+					conn.setRequestMethod("GET");
 					conn.setConnectTimeout(5000);
+
+					if (conn.getResponseCode() == 200) {
+						Log.i("log", "success");
+						is = conn.getInputStream();
+						Message msg = Message.obtain();
+						switch (type) {
+						case STRING:
+							msg.what = 1;
+							msg.obj = convertStreamToString(is);
+							break;
+						case BITMAP:
+							msg.what = 2;
+							Bitmap image = convertStreamToBitmap(is);
+							msg.obj = image;
+							setBitmapInLruCache(urlStr, image);
+							break;
+						}
+
+						handler.sendMessage(msg);
+					}
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					Log.i("log", "failure");
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					Log.i("log", "failure");
+					e.printStackTrace();
+				} finally {
+					if (null != is) {
+						try {
+							is.close();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+
+		}.start();
+
+	}
+
+	public void execute(final String type, int method, final String urlStr,
+			final String params) {
+		new Thread() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				super.run();
+
+				HttpURLConnection conn = null;
+				InputStream is = null;
+
+				try {
+					URL url = new URL(urlStr);
+					conn = (HttpURLConnection) url.openConnection();
+					conn.setRequestMethod("POST");
+					conn.setConnectTimeout(5000);
+					conn.setDoOutput(true);
+					conn.getOutputStream().write(params.getBytes());
 
 					if (conn.getResponseCode() == 200) {
 						is = conn.getInputStream();
@@ -109,6 +174,7 @@ public abstract class NetUtil {
 			}
 
 		}.start();
+
 	}
 
 	public abstract void dealResult(Result result);
@@ -156,6 +222,22 @@ public abstract class NetUtil {
 		}
 
 		execute(type, method, urlStr);
+	}
+
+	public void begin(String type, int method, String urlStr, String params) {
+		if (type.equals(BITMAP)) {
+			Bitmap image = lruCache.get(urlStr);
+			if (null != image) {
+				Result result = new Result();
+				result.image = image;
+				dealResult(result);
+				return;
+			}
+			execute(type, method, urlStr, params);
+			return;
+		}
+
+		execute(type, method, urlStr, params);
 	}
 
 	public void setBitmapInLruCache(String key, Bitmap value) {

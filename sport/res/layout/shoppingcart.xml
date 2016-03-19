@@ -7,6 +7,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:background="@drawable/maincolor" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1" >
 
         <TextView
@@ -18,7 +24,20 @@
             android:background="@drawable/maincolor"
             android:gravity="center"
             android:text="购物车"
-            android:textColor="@drawable/white" />
+            android:textColor="@drawable/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_shoppingcart_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/maincolor"
+            android:text="编辑"
+            android:textColor="@drawable/white"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -44,13 +63,13 @@
             android:id="@+id/cb_shoppingcart_select_all"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:text="全选" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1.5"
             android:gravity="center_vertical|right"
             android:text="合计：" />
 
@@ -58,9 +77,9 @@
             android:id="@+id/tv_shoppingcart_price"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:gravity="center_vertical|left"
-            android:text="¥180"
+            android:text="￥0.0"
             android:textColor="@drawable/maincolor"
             android:textSize="20sp" />
 
