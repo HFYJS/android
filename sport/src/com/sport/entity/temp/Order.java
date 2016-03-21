@@ -1,31 +1,41 @@
 package com.sport.entity.temp;
 
+import com.sport.entity.Goods;
+
 public class Order {
 	int oid;
-	int gid;
-	String goodsName;
-	String imgPath;
+	int sid;
+	double allprice;
+	public double getAllprice() {
+		return allprice;
+	}
+
+	public void setAllprice(double allprice) {
+		this.allprice = allprice;
+	}
+
+	public int getSid() {
+		return sid;
+	}
+
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+
+	Goods goods;
+
 	int count;
-	double price;
+
+	public Goods getGoods() {
+		return goods;
+	}
+
+	public void setGoods(Goods goods) {
+		this.goods = goods;
+	}
 
 	public Order() {
 
-	}
-
-	public Order(String goodsName, String imgPath, int count, double price) {
-		super();
-		this.goodsName = goodsName;
-		this.imgPath = imgPath;
-		this.count = count;
-		this.price = price;
-	}
-
-	public int getGid() {
-		return gid;
-	}
-
-	public void setGid(int gid) {
-		this.gid = gid;
 	}
 
 	public int getOid() {
@@ -36,22 +46,6 @@ public class Order {
 		this.oid = oid;
 	}
 
-	public String getGoodsName() {
-		return goodsName;
-	}
-
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
-	}
-
-	public String getImgPath() {
-		return imgPath;
-	}
-
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
-	}
-
 	public int getCount() {
 		return count;
 	}
@@ -60,11 +54,4 @@ public class Order {
 		this.count = count;
 	}
 
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
 }

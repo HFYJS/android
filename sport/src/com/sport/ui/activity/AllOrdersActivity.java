@@ -184,12 +184,12 @@ public class AllOrdersActivity extends Activity {
 					+ " 件商品");
 			childListViewItem.tvAllPrice.setText("￥"
 					+ list.get(position).getTotal() + "");
-			childListViewItem.tvState.setText(list.get(position).getStateName());
-			childListViewItem.btnShopName.setText(list.get(position).getShopName());
+			childListViewItem.tvState.setText(list.get(position).getState().getName());
+			childListViewItem.btnShopName.setText(list.get(position).getShop().getName());
 			BitmapUtils bitmapUtils = new BitmapUtils(context);
 			bitmapUtils.display(childListViewItem.ivShopImage, context
 					.getResources().getString(R.string.url_pre)
-					+ list.get(position).getShopImage());
+					+ list.get(position).getShop().getImgPath());
 			//listview添加tag（Position ）
 			
 			//adapter由对应的tag来确定：orderdetailList.get(listview.getTag())

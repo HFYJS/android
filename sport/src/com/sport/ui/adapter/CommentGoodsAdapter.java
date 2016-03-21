@@ -19,6 +19,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -86,6 +87,8 @@ public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 			childListViewItem.rlshop = (RelativeLayout) convertView.findViewById(R.id.rl_evaluate_goods_shop);
 			childListViewItem.lv = (ListView) convertView
 					.findViewById(R.id.lv_evaluate_goods_item_goodscount);
+			childListViewItem.llorder = (LinearLayout) convertView
+					.findViewById(R.id.ll_evaluate_goods_item_goodscount);
 			
 			childListViewItem.rlshop.setTag(position);
 			childListViewItem.btnDel.setTag(position);
@@ -97,7 +100,7 @@ public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 			childListViewItem.btnQuery.setOnClickListener(this);
 			childListViewItem.btnEvaluate.setOnClickListener(this);
 			childListViewItem.rlshop.setOnClickListener(this);
-		
+			childListViewItem.llorder.setOnClickListener(this);
 			//嵌套listview
 			
 			
@@ -111,12 +114,12 @@ public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 				+ " 件商品");
 		childListViewItem.tvAllPrice.setText("￥"
 				+ list.get(position).getTotal() + "");
-		childListViewItem.tvState.setText(list.get(position).getStateName());
-		childListViewItem.btnShopName.setText(list.get(position).getShopName());
+		childListViewItem.tvState.setText(list.get(position).getState().getName());
+		childListViewItem.btnShopName.setText(list.get(position).getShop().getName());
 		BitmapUtils bitmapUtils = new BitmapUtils(context);
 		bitmapUtils.display(childListViewItem.ivShopImage, context
 				.getResources().getString(R.string.url_pre)
-				+ list.get(position).getShopImage());
+				+ list.get(position).getShop().getImgPath());
 		//listview添加tag（Position ）
 		
 		//adapter由对应的tag来确定：orderdetailList.get(listview.getTag())
@@ -145,6 +148,7 @@ public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 		ListView lv;
 		ImageView ivShopImage;
 		RelativeLayout rlshop;
+		LinearLayout llorder;
 	}
 
 	@Override
@@ -152,8 +156,12 @@ public class CommentGoodsAdapter extends BaseAdapter implements OnClickListener{
 		int oid = list.get((Integer) v.getTag()).getOid();
 		switch (v.getId()) {
 		case R.id.rl_evaluate_goods_shop:
-			String shopname = list.get((Integer) v.getTag()).getShopName();
+			String shopname = list.get((Integer) v.getTag()).getShop().getName();
 			Toast.makeText(context, "商店"+shopname,Toast.LENGTH_SHORT).show();
+			break;
+		case R.id.ll_evaluate_goods_item_goodscount:
+//			String shopname = orderdetailList.get((Integer) childListViewItem.lv.getTag()).get(oid)
+			Toast.makeText(context, "商店"+oid,Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.bt_evaluate_goods__item_delete:
 //			list.remove((Integer) v.getTag());

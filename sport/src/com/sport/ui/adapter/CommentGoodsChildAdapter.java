@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CommentGoodsChildAdapter extends BaseAdapter {
+	
+
 	private List<Order> list;
 	private Context context;
 	private LayoutInflater inflater;
@@ -37,7 +39,7 @@ public class CommentGoodsChildAdapter extends BaseAdapter {
 //		this.list.clear();
 //		notifyDataSetChanged();
 //	}
-
+	
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -80,11 +82,11 @@ public class CommentGoodsChildAdapter extends BaseAdapter {
 		bitmapUtils.display(
 				listItem.ivGoods,
 				context.getResources().getString(R.string.url_pre)
-						+ list.get(position).getImgPath());
+						+ list.get(position).getGoods().getImgPath());
 		listItem.tvGoodsCount
 				.setText("* " + list.get(position).getCount() + "");
-		listItem.tvGoodsName.setText(list.get(position).getGoodsName());
-		listItem.tvGoodsPrice.setText(list.get(position).getPrice() + "");
+		listItem.tvGoodsName.setText(list.get(position).getGoods().getName());
+		listItem.tvGoodsPrice.setText(list.get(position).getGoods().getPrice() + "");
 		return convertView;
 	}
 

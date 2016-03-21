@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_place_order_shop"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/bt_place_order_item_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+			android:gravity="center"
+            android:text="店名"/>
+
+        <ImageView
+            android:id="@+id/iv_place_order_item_shop_image"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher" />
+
+    </RelativeLayout>
+
+    <com.sport.myview.CommentGoodsChildLV
+            android:id="@+id/lv_place_order_item_goodscount"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" >
+        </com.sport.myview.CommentGoodsChildLV>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp" >
+
+        <TextView
+            android:id="@+id/tv_place_order_item_goodscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="117dp"
+            android:text="共1件商品" 
+            android:textSize="12sp"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_place_order__item_goodsprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_place_order_item_goodscount"
+            android:layout_alignBottom="@+id/tv_place_order_item_goodscount"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="19dp"
+            android:text="合计：￥139.00" 
+             android:textSize="12sp"
+            android:gravity="center"/>
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="买家留言：" />
+
+        <EditText
+            android:id="@+id/et_place_order__item_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/textView1"
+            android:ems="10" 
+            android:minLines="3"
+            android:textSize="12sp"
+            android:hint="选填，可填写您和卖家达成一致的要求"
+            android:background="@null">
+
+            <requestFocus />
+        </EditText>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="15dp" >
+
+        <TextView
+          
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -39,14 +39,21 @@
             android:src="@drawable/ic_launcher" />
 
     </RelativeLayout>
-
-    <com.sport.myview.CommentGoodsChildLV
+<LinearLayout
+    android:id="@+id/ll_evaluate_goods_item_goodscount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <com.sport.myview.CommentGoodsChildLV
             android:id="@+id/lv_evaluate_goods_item_goodscount"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true" >
+            android:layout_alignParentLeft="true" 
+            android:listSelector="@android:color/transparent">
         </com.sport.myview.CommentGoodsChildLV>
+    </LinearLayout>
+    
 
     <RelativeLayout
         android:layout_width="match_parent"

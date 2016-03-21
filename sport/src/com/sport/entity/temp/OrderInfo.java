@@ -2,50 +2,63 @@ package com.sport.entity.temp;
 
 import java.util.Date;
 
+
+import com.sport.entity.Address;
+import com.sport.entity.Shop;
+import com.sport.entity.State;
+
 public class OrderInfo {
 	int oid;
-	int sid;
-	String shopName;
+	Address address;
 	int sum;
 	double total;
 	Date date;
-	String stateName;
-	String shopImage;
+	String note;
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+
+	State state;
+	Shop shop;
 
 	public OrderInfo() {
 
 	}
 
-	public OrderInfo(int oid, String shopName, int sum, double total) {
+	public OrderInfo(int oid, int sum, double total) {
 		super();
 		this.oid = oid;
-		this.shopName = shopName;
 		this.sum = sum;
 		this.total = total;
 	}
 
-	public int getSid() {
-		return sid;
+
+	public State getState() {
+		return state;
 	}
 
-	public void setSid(int sid) {
-		this.sid = sid;
-	}
-
-	public String getShopImage() {
-		return shopImage;
-	}
-
-	public void setShopImage(String shopImage) {
-		this.shopImage = shopImage;
-	}
-
-	public String getStateName() {
-		return stateName;
-	}
-
-	public void setStateName(String stateName) {
-		this.stateName = stateName;
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	public Date getDate() {
@@ -62,14 +75,6 @@ public class OrderInfo {
 
 	public void setOid(int oid) {
 		this.oid = oid;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
 	}
 
 	public int getSum() {
