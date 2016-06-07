@@ -1,6 +1,7 @@
 package com.sport.entity;
 
 public class Address {
+//test2
 	private int aid;
 	private User user;
 	private String address;
